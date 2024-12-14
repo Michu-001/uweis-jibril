@@ -1,0 +1,317 @@
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --BGCOLOR: rgb(6, 6, 20);
+    --COLOR: white;
+    --FONTCOLOR: orangered;
+    --BORDER: 2px solid;
+    --BORDER-RADIUS: 10px;
+    --TEXT-FONT: "Montserrat", sans-serif;
+    --HEADER-FONT: "Roboto", sans-serif;
+}
+
+/* Global Styles */
+body {
+    font-family: var(--TEXT-FONT);
+    min-height: 100vh;
+    background: linear-gradient(rgba(10, 10, 31, 0.5), rgba(0, 0, 0, 0.7)), url(images/HD-wallpaper-foggy-forest-fog-green-nature-snow.jpg) no-repeat center center/cover;
+    color: var(--COLOR);
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    background-color: var(--BGCOLOR);
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+#mane {
+    font-size: 32px;
+    font-family: var(--HEADER-FONT);
+    color: var(--COLOR);
+}
+
+.name {
+    border-right: solid red 3px;
+    padding-right: 10px;
+}
+
+#pic {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+#pic:hover {
+    transform: scale(1.1);
+}
+
+main {
+    display: grid;
+    gap: 20px;
+    margin: 20px;
+    grid-template-rows: auto 1fr auto;
+}
+
+#skill {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    color: var(--COLOR);
+    padding: 20px;
+    border-radius: var(--BORDER-RADIUS);
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.first-skill, .second-skill {
+    border: 2px solid var(--COLOR);
+    padding: 20px;
+    border-radius: var(--BORDER-RADIUS);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#typing {
+    width: 100%;
+    min-height: 200px;
+    border: 2px solid var(--COLOR);
+    border-radius: var(--BORDER-RADIUS);
+    color: var(--COLOR);
+    font-size: 45px;
+    font-family: "Montserrat", sans-serif;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+#typing span {
+    position: relative;
+}
+
+#typing span::before {
+    content: "Designer";
+    color: var(--FONTCOLOR);
+    animation: words 10s infinite;
+}
+
+#typing span::after {
+    content: "";
+    width: calc(100% + 8px);
+    height: auto;
+    background-color: var(--FONTCOLOR);
+    right: -8px;
+    animation: cursor .8s infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-right: 2px solid var(--FONTCOLOR);
+    }
+}
+
+@keyframes words {
+    0%, 20% { content: "Designer"; }
+    21%, 40% { content: "Developer"; }
+    41%, 60% { content: "Grey hat"; }
+    61%, 80% { content: "Blogger"; }
+    81%, 100% { content: "Gamer"; }
+}
+
+/* Footer Styles */
+#footer {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    color: var(--COLOR);
+    padding: 40px;
+    margin-top: 40px;
+    border-top: 2px solid var(--COLOR);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* First container (icons, links, etc.) */
+#first-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    justify-items: center;
+}
+
+/* Uhm (Center alignment for footer icons) */
+.uhm {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    place-items: center;
+}
+
+#icons {
+    height: 40px;
+    width: 40px;
+    transition: transform 0.3s ease;
+}
+
+#icons:hover {
+    transform: scale(1.1);
+}
+
+a {
+    text-decoration: none;
+    color: var(--FONTCOLOR);
+}
+
+#about-me {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: var(--BORDER-RADIUS);
+    padding: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+h1, .dit, .links {
+    color: var(--FONTCOLOR);
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Media Queries */
+
+/* Mobile view */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    #mane {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    #pic {
+        width: 50px;
+        height: 50px;
+    }
+
+    #skill {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    #footer {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .uhm {
+        grid-template-columns: 1fr; /* Stack the icons vertically */
+    }
+
+    .first-skill, .second-skill {
+        padding: 15px;
+    }
+
+    #typing {
+        font-size: 30px;
+    }
+
+    #first-container {
+        grid-template-columns: 1fr; /* Stack content vertically */
+    }
+}
+
+/* Tablet view */
+@media (min-width: 601px) and (max-width: 1024px) {
+    #mane {
+        font-size: 28px;
+    }
+
+    #pic {
+        width: 55px;
+        height: 55px;
+    }
+
+    main {
+        grid-template-rows: auto auto 1fr;
+    }
+
+    #skill {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #footer {
+        padding: 30px;
+    }
+
+    .first-skill, .second-skill {
+        padding: 18px;
+    }
+
+    #typing {
+        font-size: 40px;
+    }
+
+    #first-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Desktop view */
+@media (min-width: 1025px) {
+    header {
+        height: 70px;
+    }
+
+    #mane {
+        font-size: 32px;
+    }
+
+    #pic {
+        width: 60px;
+        height: 60px;
+    }
+
+    main {
+        grid-template-rows: auto 1fr auto;
+        gap: 30px;
+    }
+
+    #skill {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #footer {
+        padding: 40px;
+    }
+
+    .first-skill, .second-skill {
+        padding: 20px;
+    }
+
+    #typing {
+        font-size: 45px;
+    }
+
+    #first-container {
+        grid-template-columns: 1fr 1fr 1fr; /* Three columns for large screens */
+    }
+}
